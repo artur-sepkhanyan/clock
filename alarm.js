@@ -16,11 +16,19 @@ function showTime(hour,min,sec){
         h = hour;
         m = min;
         s = sec ;
-        time = h + ":" + m + ":" + s;
+        var myDate = new Date();
+        myDate.setHours(h);
+        myDate.setMinutes(m);
+        myDate.setSeconds(s);
+        myHour = myDate.getHours();
+        myMin = myDate.getMinutes();
+        mySec = myDate.getSeconds();
+        
+        time = myHour + ":" + myMin + ":" + mySec;
         document.getElementById("MyClockDisplay").innerText = time;
     
         setTimeout(showTime, 1000);
-        
+       
     }
     
  
@@ -30,7 +38,8 @@ function changeTime(){
     var inp = document.getElementById("time").value; 
     var a = inp.split(":");
     
-    showTime(a[0],a[1],a[2])
+    showTime(a[0],a[1],a[2]);
+    
     
     
 }
